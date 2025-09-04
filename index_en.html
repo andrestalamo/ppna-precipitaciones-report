@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.33">
@@ -8,6 +8,7 @@
 
 <meta name="author" content="Andrés Tálamo">
 <meta name="author" content="Mariana Quiroga Mendiola">
+<meta name="dcterms.date" content="2025-09-04">
 
 <title>Aboveground Net Primary Productivity (ANPP) and rainfall in two ecological sites of the Dry Puna (Cobres, Salta)</title>
 <style>
@@ -131,8 +132,8 @@ window.Quarto = {
   </div>
     
   <div class="quarto-title-meta-author">
-    <div class="quarto-title-meta-heading">Autores/as</div>
-    <div class="quarto-title-meta-heading">Afiliaciones</div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Affiliations</div>
     
       <div class="quarto-title-meta-contents">
       <p class="author">Andrés Tálamo <a href="mailto:andrestalamo@gmail.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
@@ -156,9 +157,9 @@ window.Quarto = {
 
         
       <div>
-      <div class="quarto-title-meta-heading">Fecha de publicación</div>
+      <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">4 de septiembre de 2025</p>
+        <p class="date">September 4, 2025</p>
       </div>
     </div>
     
@@ -175,7 +176,7 @@ window.Quarto = {
   </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
   <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#rainfall" id="toc-rainfall" class="nav-link active" data-scroll-target="#rainfall"><span class="header-section-number">1</span> Rainfall</a></li>
@@ -191,7 +192,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#i-combine-both-regression-figures-and-add-the-equations" id="toc-i-combine-both-regression-figures-and-add-the-equations" class="nav-link" data-scroll-target="#i-combine-both-regression-figures-and-add-the-equations"><span class="header-section-number">5</span> I combine both regression figures and add the equations</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index_en.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index_en.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
@@ -218,7 +219,7 @@ window.Quarto = {
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpmisc) <span class="co"># Para agregar la ecuación de la recta a cada faceta</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sessioninfo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sessioninfo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>And then I load the dataset, clean it, and make a few edits:</p>
@@ -231,7 +232,7 @@ window.Quarto = {
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cobres_nueva <span class="ot">&lt;-</span> cobres_nueva <span class="sc">%&gt;%</span> </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sitio2 =</span> <span class="fu">factor</span>(sitio, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Shrub</span><span class="sc">\n</span><span class="st">steppe"</span>, <span class="st">"Grass-shrub</span><span class="sc">\n</span><span class="st">steppe"</span>))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="rainfall" class="level1" data-number="1">
@@ -249,32 +250,32 @@ window.Quarto = {
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">min =</span> <span class="fu">round</span>(<span class="fu">min</span>(precip_gaitan_2, <span class="at">na.rm =</span> T),<span class="dv">2</span>),</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">max =</span> <span class="fu">round</span>(<span class="fu">max</span>(precip_gaitan_2, <span class="at">na.rm =</span> T),<span class="dv">2</span>)</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="tbl-precip" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-precip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year (extrapolated with GEE).
+Table&nbsp;1: Summary statistics of growing season rainfall in the harvest year (extrapolated with GEE).
 </figcaption>
 <div aria-describedby="tbl-precip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="ycrbrwstrp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ycrbrwstrp table {
+<div id="sloellqzth" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sloellqzth table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ycrbrwstrp thead, #ycrbrwstrp tbody, #ycrbrwstrp tfoot, #ycrbrwstrp tr, #ycrbrwstrp td, #ycrbrwstrp th {
+#sloellqzth thead, #sloellqzth tbody, #sloellqzth tfoot, #sloellqzth tr, #sloellqzth td, #sloellqzth th {
   border-style: none;
 }
 
-#ycrbrwstrp p {
+#sloellqzth p {
   margin: 0;
   padding: 0;
 }
 
-#ycrbrwstrp .gt_table {
+#sloellqzth .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -300,12 +301,12 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-left-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_caption {
+#sloellqzth .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ycrbrwstrp .gt_title {
+#sloellqzth .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -317,7 +318,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-bottom-width: 0;
 }
 
-#ycrbrwstrp .gt_subtitle {
+#sloellqzth .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -329,7 +330,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-top-width: 0;
 }
 
-#ycrbrwstrp .gt_heading {
+#sloellqzth .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -341,13 +342,13 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-right-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_bottom_border {
+#sloellqzth .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_col_headings {
+#sloellqzth .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -362,7 +363,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-right-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_col_heading {
+#sloellqzth .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -382,7 +383,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   overflow-x: hidden;
 }
 
-#ycrbrwstrp .gt_column_spanner_outer {
+#sloellqzth .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -394,15 +395,15 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   padding-right: 4px;
 }
 
-#ycrbrwstrp .gt_column_spanner_outer:first-child {
+#sloellqzth .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ycrbrwstrp .gt_column_spanner_outer:last-child {
+#sloellqzth .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ycrbrwstrp .gt_column_spanner {
+#sloellqzth .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -414,11 +415,11 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   width: 100%;
 }
 
-#ycrbrwstrp .gt_spanner_row {
+#sloellqzth .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ycrbrwstrp .gt_group_heading {
+#sloellqzth .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -444,7 +445,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   text-align: left;
 }
 
-#ycrbrwstrp .gt_empty_group_heading {
+#sloellqzth .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -459,15 +460,15 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   vertical-align: middle;
 }
 
-#ycrbrwstrp .gt_from_md > :first-child {
+#sloellqzth .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ycrbrwstrp .gt_from_md > :last-child {
+#sloellqzth .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ycrbrwstrp .gt_row {
+#sloellqzth .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -486,7 +487,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   overflow-x: hidden;
 }
 
-#ycrbrwstrp .gt_stub {
+#sloellqzth .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -499,7 +500,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   padding-right: 5px;
 }
 
-#ycrbrwstrp .gt_stub_row_group {
+#sloellqzth .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -513,15 +514,15 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   vertical-align: top;
 }
 
-#ycrbrwstrp .gt_row_group_first td {
+#sloellqzth .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ycrbrwstrp .gt_row_group_first th {
+#sloellqzth .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ycrbrwstrp .gt_summary_row {
+#sloellqzth .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -531,16 +532,16 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   padding-right: 5px;
 }
 
-#ycrbrwstrp .gt_first_summary_row {
+#sloellqzth .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_first_summary_row.thick {
+#sloellqzth .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ycrbrwstrp .gt_last_summary_row {
+#sloellqzth .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -550,7 +551,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-bottom-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_grand_summary_row {
+#sloellqzth .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -560,7 +561,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   padding-right: 5px;
 }
 
-#ycrbrwstrp .gt_first_grand_summary_row {
+#sloellqzth .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -570,7 +571,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-top-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_last_grand_summary_row_top {
+#sloellqzth .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -580,11 +581,11 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-bottom-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_striped {
+#sloellqzth .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ycrbrwstrp .gt_table_body {
+#sloellqzth .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -593,7 +594,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-bottom-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_footnotes {
+#sloellqzth .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -607,7 +608,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-right-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_footnote {
+#sloellqzth .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -616,7 +617,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   padding-right: 5px;
 }
 
-#ycrbrwstrp .gt_sourcenotes {
+#sloellqzth .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -630,7 +631,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   border-right-color: #D3D3D3;
 }
 
-#ycrbrwstrp .gt_sourcenote {
+#sloellqzth .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -638,72 +639,72 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
   padding-right: 5px;
 }
 
-#ycrbrwstrp .gt_left {
+#sloellqzth .gt_left {
   text-align: left;
 }
 
-#ycrbrwstrp .gt_center {
+#sloellqzth .gt_center {
   text-align: center;
 }
 
-#ycrbrwstrp .gt_right {
+#sloellqzth .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ycrbrwstrp .gt_font_normal {
+#sloellqzth .gt_font_normal {
   font-weight: normal;
 }
 
-#ycrbrwstrp .gt_font_bold {
+#sloellqzth .gt_font_bold {
   font-weight: bold;
 }
 
-#ycrbrwstrp .gt_font_italic {
+#sloellqzth .gt_font_italic {
   font-style: italic;
 }
 
-#ycrbrwstrp .gt_super {
+#sloellqzth .gt_super {
   font-size: 65%;
 }
 
-#ycrbrwstrp .gt_footnote_marks {
+#sloellqzth .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ycrbrwstrp .gt_asterisk {
+#sloellqzth .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ycrbrwstrp .gt_indent_1 {
+#sloellqzth .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ycrbrwstrp .gt_indent_2 {
+#sloellqzth .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ycrbrwstrp .gt_indent_3 {
+#sloellqzth .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ycrbrwstrp .gt_indent_4 {
+#sloellqzth .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ycrbrwstrp .gt_indent_5 {
+#sloellqzth .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ycrbrwstrp .katex-display {
+#sloellqzth .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ycrbrwstrp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sloellqzth div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -788,7 +789,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
 <span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
 <span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="co"># ggview(width = 3, height = 3)</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Fig_cajas_medias.png"</span>, <span class="at">width =</span> <span class="fl">3.5</span>, <span class="at">height =</span> <span class="fl">3.5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Fig_cajas_medias.png"</span>, <span class="at">width =</span> <span class="fl">3.5</span>, <span class="at">height =</span> <span class="fl">3.5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-ppna" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -797,7 +798,7 @@ Tabla&nbsp;1: Summary statistics of growing season rainfall in the harvest year 
 <img src="index_en_files/figure-html/fig-ppna-1.jpeg" class="img-fluid figure-img" style="width:4in">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ppna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1: ANPP in both steppes. Points show annual estimates; the horizontal line within each box indicates the median, and the white diamond the arithmetic mean.
+Figure&nbsp;1: ANPP in both steppes. Points show annual estimates; the horizontal line within each box indicates the median, and the white diamond the arithmetic mean.
 </figcaption>
 </figure>
 </div>
@@ -819,7 +820,7 @@ Heads up…
 </section>
 <section id="inferential-analysis" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="inferential-analysis"><span class="header-section-number">2.2</span> Inferential analysis</h2>
-<p>The average ANPP in the grass–shrub steppe (751.8 kg DM/ha/year) was 1.6 times higher than in the shrub steppe (480.7 kg DM/ha/year), and this difference was marginally significant (<a href="#tbl-prueba_t" class="quarto-xref">Tabla&nbsp;2</a>). ANPP variability in the grass–shrub steppe (CV = 67.7%; Range: 211.7–1845.7 kg DM/ha/year) was higher than in the shrub steppe (CV = 40.3%; Range: 194.1–824.1 kg DM/ha/year)(<a href="#fig-ppna" class="quarto-xref">Figura&nbsp;1</a>)(Bartlett’s K-squared = 6.96, df = 1, p = 0.008).</p>
+<p>The average ANPP in the grass–shrub steppe (751.8 kg DM/ha/year) was 1.6 times higher than in the shrub steppe (480.7 kg DM/ha/year), and this difference was marginally significant (<a href="#tbl-prueba_t" class="quarto-xref">Table&nbsp;2</a>). ANPP variability in the grass–shrub steppe (CV = 67.7%; Range: 211.7–1845.7 kg DM/ha/year) was higher than in the shrub steppe (CV = 40.3%; Range: 194.1–824.1 kg DM/ha/year)(<a href="#fig-ppna" class="quarto-xref">Figure&nbsp;1</a>)(Bartlett’s K-squared = 6.96, df = 1, p = 0.008).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -848,32 +849,32 @@ Heads up…
 <span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(</span>
 <span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">vars</span>(estadistico_t, p_value),</span>
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">decimals =</span> <span class="dv">3</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="tbl-prueba_t" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-prueba_t-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
+Table&nbsp;2: Mean ANPP comparison between the two steppes.
 </figcaption>
 <div aria-describedby="tbl-prueba_t-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="fqdbcjqvrd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fqdbcjqvrd table {
+<div id="bagudqzqrs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bagudqzqrs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fqdbcjqvrd thead, #fqdbcjqvrd tbody, #fqdbcjqvrd tfoot, #fqdbcjqvrd tr, #fqdbcjqvrd td, #fqdbcjqvrd th {
+#bagudqzqrs thead, #bagudqzqrs tbody, #bagudqzqrs tfoot, #bagudqzqrs tr, #bagudqzqrs td, #bagudqzqrs th {
   border-style: none;
 }
 
-#fqdbcjqvrd p {
+#bagudqzqrs p {
   margin: 0;
   padding: 0;
 }
 
-#fqdbcjqvrd .gt_table {
+#bagudqzqrs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -899,12 +900,12 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-left-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_caption {
+#bagudqzqrs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fqdbcjqvrd .gt_title {
+#bagudqzqrs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -916,7 +917,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-bottom-width: 0;
 }
 
-#fqdbcjqvrd .gt_subtitle {
+#bagudqzqrs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -928,7 +929,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-top-width: 0;
 }
 
-#fqdbcjqvrd .gt_heading {
+#bagudqzqrs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -940,13 +941,13 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-right-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_bottom_border {
+#bagudqzqrs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_col_headings {
+#bagudqzqrs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -961,7 +962,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-right-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_col_heading {
+#bagudqzqrs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -981,7 +982,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   overflow-x: hidden;
 }
 
-#fqdbcjqvrd .gt_column_spanner_outer {
+#bagudqzqrs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -993,15 +994,15 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   padding-right: 4px;
 }
 
-#fqdbcjqvrd .gt_column_spanner_outer:first-child {
+#bagudqzqrs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fqdbcjqvrd .gt_column_spanner_outer:last-child {
+#bagudqzqrs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fqdbcjqvrd .gt_column_spanner {
+#bagudqzqrs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1013,11 +1014,11 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   width: 100%;
 }
 
-#fqdbcjqvrd .gt_spanner_row {
+#bagudqzqrs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fqdbcjqvrd .gt_group_heading {
+#bagudqzqrs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1043,7 +1044,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   text-align: left;
 }
 
-#fqdbcjqvrd .gt_empty_group_heading {
+#bagudqzqrs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1058,15 +1059,15 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   vertical-align: middle;
 }
 
-#fqdbcjqvrd .gt_from_md > :first-child {
+#bagudqzqrs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fqdbcjqvrd .gt_from_md > :last-child {
+#bagudqzqrs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fqdbcjqvrd .gt_row {
+#bagudqzqrs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1085,7 +1086,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   overflow-x: hidden;
 }
 
-#fqdbcjqvrd .gt_stub {
+#bagudqzqrs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1098,7 +1099,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   padding-right: 5px;
 }
 
-#fqdbcjqvrd .gt_stub_row_group {
+#bagudqzqrs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1112,15 +1113,15 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   vertical-align: top;
 }
 
-#fqdbcjqvrd .gt_row_group_first td {
+#bagudqzqrs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fqdbcjqvrd .gt_row_group_first th {
+#bagudqzqrs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fqdbcjqvrd .gt_summary_row {
+#bagudqzqrs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1130,16 +1131,16 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   padding-right: 5px;
 }
 
-#fqdbcjqvrd .gt_first_summary_row {
+#bagudqzqrs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_first_summary_row.thick {
+#bagudqzqrs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fqdbcjqvrd .gt_last_summary_row {
+#bagudqzqrs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1149,7 +1150,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-bottom-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_grand_summary_row {
+#bagudqzqrs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1159,7 +1160,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   padding-right: 5px;
 }
 
-#fqdbcjqvrd .gt_first_grand_summary_row {
+#bagudqzqrs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1169,7 +1170,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-top-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_last_grand_summary_row_top {
+#bagudqzqrs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1179,11 +1180,11 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-bottom-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_striped {
+#bagudqzqrs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fqdbcjqvrd .gt_table_body {
+#bagudqzqrs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1192,7 +1193,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-bottom-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_footnotes {
+#bagudqzqrs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1206,7 +1207,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-right-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_footnote {
+#bagudqzqrs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1215,7 +1216,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   padding-right: 5px;
 }
 
-#fqdbcjqvrd .gt_sourcenotes {
+#bagudqzqrs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1229,7 +1230,7 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   border-right-color: #D3D3D3;
 }
 
-#fqdbcjqvrd .gt_sourcenote {
+#bagudqzqrs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1237,72 +1238,72 @@ Tabla&nbsp;2: Mean ANPP comparison between the two steppes.
   padding-right: 5px;
 }
 
-#fqdbcjqvrd .gt_left {
+#bagudqzqrs .gt_left {
   text-align: left;
 }
 
-#fqdbcjqvrd .gt_center {
+#bagudqzqrs .gt_center {
   text-align: center;
 }
 
-#fqdbcjqvrd .gt_right {
+#bagudqzqrs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fqdbcjqvrd .gt_font_normal {
+#bagudqzqrs .gt_font_normal {
   font-weight: normal;
 }
 
-#fqdbcjqvrd .gt_font_bold {
+#bagudqzqrs .gt_font_bold {
   font-weight: bold;
 }
 
-#fqdbcjqvrd .gt_font_italic {
+#bagudqzqrs .gt_font_italic {
   font-style: italic;
 }
 
-#fqdbcjqvrd .gt_super {
+#bagudqzqrs .gt_super {
   font-size: 65%;
 }
 
-#fqdbcjqvrd .gt_footnote_marks {
+#bagudqzqrs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fqdbcjqvrd .gt_asterisk {
+#bagudqzqrs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fqdbcjqvrd .gt_indent_1 {
+#bagudqzqrs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fqdbcjqvrd .gt_indent_2 {
+#bagudqzqrs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fqdbcjqvrd .gt_indent_3 {
+#bagudqzqrs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fqdbcjqvrd .gt_indent_4 {
+#bagudqzqrs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fqdbcjqvrd .gt_indent_5 {
+#bagudqzqrs .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fqdbcjqvrd .katex-display {
+#bagudqzqrs .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fqdbcjqvrd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bagudqzqrs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1348,7 +1349,7 @@ Summing up ANPP…
 </section>
 <section id="anpp-across-years-by-ecological-site-and-rainfall" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> ANPP across years, by ecological site, and rainfall</h1>
-<p>Between the two visualizations (<a href="#fig-ppna_precip_barras" class="quarto-xref">Figura&nbsp;2</a> and <a href="#fig-ppna_precip_lineas_sin_facetas" class="quarto-xref">Figura&nbsp;3</a>), <a href="#fig-ppna_precip_lineas_sin_facetas" class="quarto-xref">Figura&nbsp;3</a> is more informative, since it doesn’t make sense to facet Campo and Cerro into separate panels.</p>
+<p>Between the two visualizations (<a href="#fig-ppna_precip_barras" class="quarto-xref">Figure&nbsp;2</a> and <a href="#fig-ppna_precip_lineas_sin_facetas" class="quarto-xref">Figure&nbsp;3</a>), <a href="#fig-ppna_precip_lineas_sin_facetas" class="quarto-xref">Figure&nbsp;3</a> is more informative, since it doesn’t make sense to facet Campo and Cerro into separate panels.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -1377,7 +1378,7 @@ Summing up ANPP…
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title.y.left =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-ppna_precip_barras" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1386,13 +1387,13 @@ Summing up ANPP…
 <img src="index_en_files/figure-html/fig-ppna_precip_barras-1.jpeg" class="img-fluid figure-img" style="width:7in">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ppna_precip_barras-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;2: Net Aboveground Primary Productivity (ANPP) in both steppes from 2010 to 2022, with growing season rainfall extrapolated from Gaitán and Biancari (2024).
+Figure&nbsp;2: Net Aboveground Primary Productivity (ANPP) in both steppes from 2010 to 2022, with growing season rainfall extrapolated from Gaitán and Biancari (2024).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>As Mariana mentioned in the WhatsApp group, ANPP’s response to rainfall differs by ecological site in the analyzed sample. In the grass–shrub steppe, ANPP closely follows rainfall in that growing season. In contrast, the shrub steppe’s response is delayed by one year: it depends on rainfall from the previous growing season (<a href="#fig-ppna_precip_lineas_sin_facetas" class="quarto-xref">Figura&nbsp;3</a>).</p>
+<p>As Mariana mentioned in the WhatsApp group, ANPP’s response to rainfall differs by ecological site in the analyzed sample. In the grass–shrub steppe, ANPP closely follows rainfall in that growing season. In contrast, the shrub steppe’s response is delayed by one year: it depends on rainfall from the previous growing season (<a href="#fig-ppna_precip_lineas_sin_facetas" class="quarto-xref">Figure&nbsp;3</a>).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -1433,7 +1434,7 @@ Figura&nbsp;2: Net Aboveground Primary Productivity (ANPP) in both steppes from 
 <span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y.left =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y.right =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
 <span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-ppna_precip_lineas_sin_facetas" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1442,13 +1443,13 @@ Figura&nbsp;2: Net Aboveground Primary Productivity (ANPP) in both steppes from 
 <img src="index_en_files/figure-html/fig-ppna_precip_lineas_sin_facetas-1.jpeg" class="img-fluid figure-img" style="width:6in">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ppna_precip_lineas_sin_facetas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3: Net Aboveground Primary Productivity (ANPP) in both steppes from 2010 to 2022, with growing season rainfall extrapolated from Gaitán and Biancari (2024).
+Figure&nbsp;3: Net Aboveground Primary Productivity (ANPP) in both steppes from 2010 to 2022, with growing season rainfall extrapolated from Gaitán and Biancari (2024).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Eduardo suggested adding standard error bars on top of each bar (which represents the mean of the 3 exclosures). It’s a good suggestion; the updated plot can be seen in <a href="#fig-ppna_precip_barras_sin_facetas" class="quarto-xref">Figura&nbsp;4</a>.</p>
+<p>Eduardo suggested adding standard error bars on top of each bar (which represents the mean of the 3 exclosures). It’s a good suggestion; the updated plot can be seen in <a href="#fig-ppna_precip_barras_sin_facetas" class="quarto-xref">Figure&nbsp;4</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -1491,7 +1492,7 @@ Figura&nbsp;3: Net Aboveground Primary Productivity (ANPP) in both steppes from 
 <span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Fig_barras_con_errores.png"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">3.5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Fig_barras_con_errores.png"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">3.5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-ppna_precip_barras_sin_facetas" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1500,7 +1501,7 @@ Figura&nbsp;3: Net Aboveground Primary Productivity (ANPP) in both steppes from 
 <img src="index_en_files/figure-html/fig-ppna_precip_barras_sin_facetas-1.jpeg" class="img-fluid figure-img" style="width:6in">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ppna_precip_barras_sin_facetas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4: Net Aboveground Primary Productivity (ANPP) in both steppes from 2010 to 2022, with growing season rainfall extrapolated from Gaitán and Biancari (2024).
+Figure&nbsp;4: Net Aboveground Primary Productivity (ANPP) in both steppes from 2010 to 2022, with growing season rainfall extrapolated from Gaitán and Biancari (2024).
 </figcaption>
 </figure>
 </div>
@@ -1511,7 +1512,7 @@ Figura&nbsp;4: Net Aboveground Primary Productivity (ANPP) in both steppes from 
 <h1 data-number="4"><span class="header-section-number">4</span> Relationship between ANPP and rainfall</h1>
 <section id="descriptive-analysis-1" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="descriptive-analysis-1"><span class="header-section-number">4.1</span> Descriptive analysis</h2>
-<p>When analyzing the relationship between ANPP and rainfall during the harvest-year growing season, we find—as mentioned above—no relationship in the shrub steppe. In contrast, for the grass–shrub steppe there is a clear positive relationship in the analyzed sample. This indicates that ANPP depends linearly on rainfall during the same growing season in which ANPP was estimated (<a href="#fig-regr" class="quarto-xref">Figura&nbsp;5</a>).</p>
+<p>When analyzing the relationship between ANPP and rainfall during the harvest-year growing season, we find—as mentioned above—no relationship in the shrub steppe. In contrast, for the grass–shrub steppe there is a clear positive relationship in the analyzed sample. This indicates that ANPP depends linearly on rainfall during the same growing season in which ANPP was estimated (<a href="#fig-regr" class="quarto-xref">Figure&nbsp;5</a>).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -1538,7 +1539,7 @@ Figura&nbsp;4: Net Aboveground Primary Productivity (ANPP) in both steppes from 
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">x =</span> <span class="st">"Growing season rainfall in the harvest year"</span>,</span>
 <span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"ANPP (kg MS·"</span>, ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">"·"</span>, año<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}))</span>
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>   ) <span class="sc">+</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#fdae6b"</span>, <span class="st">"#a1d99b"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>   <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#fdae6b"</span>, <span class="st">"#a1d99b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-regr" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1547,13 +1548,13 @@ Figura&nbsp;4: Net Aboveground Primary Productivity (ANPP) in both steppes from 
 <img src="index_en_files/figure-html/fig-regr-1.jpeg" class="img-fluid figure-img" style="width:6in">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;5: Relationship between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall extrapolated from Gaitán and Biancari (2024).
+Figure&nbsp;5: Relationship between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall extrapolated from Gaitán and Biancari (2024).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Exploring the relationship with rainfall from the previous growing season, the pattern reverses. In the shrub steppe, the relationship becomes positive: there is higher ANPP when it rained more in the previous growing season. In contrast, for the grass–shrub steppe there is no clear relationship (<a href="#fig-regr_2" class="quarto-xref">Figura&nbsp;6</a>).</p>
+<p>Exploring the relationship with rainfall from the previous growing season, the pattern reverses. In the shrub steppe, the relationship becomes positive: there is higher ANPP when it rained more in the previous growing season. In contrast, for the grass–shrub steppe there is no clear relationship (<a href="#fig-regr_2" class="quarto-xref">Figure&nbsp;6</a>).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -1580,7 +1581,7 @@ Figura&nbsp;5: Relationship between Net Aboveground Primary Productivity (ANPP) 
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Growing season rainfall in the previous year"</span>,</span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"ANPP (kg MS·"</span>, ha<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}, <span class="st">"·"</span>, año<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}))</span>
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#fdae6b"</span>, <span class="st">"#a1d99b"</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#fdae6b"</span>, <span class="st">"#a1d99b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-regr_2" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1589,7 +1590,7 @@ Figura&nbsp;5: Relationship between Net Aboveground Primary Productivity (ANPP) 
 <img src="index_en_files/figure-html/fig-regr_2-1.jpeg" class="img-fluid figure-img" style="width:6in">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regr_2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;6: Relationship between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall from the previous year, extrapolated from Gaitán and Biancari (2024).
+Figure&nbsp;6: Relationship between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall from the previous year, extrapolated from Gaitán and Biancari (2024).
 </figcaption>
 </figure>
 </div>
@@ -1622,8 +1623,8 @@ Heads up…
 <p>What we see in the sample cannot necessarily be generalized.</p>
 </div>
 </div>
-<p>When testing the model for ANPP with <strong>rainfall during the harvest-year growing season</strong>, we see no significant linear regression in the shrub steppe (b = 1.4, P = 0.6) (<a href="#tbl-regr1" class="quarto-xref">Tabla&nbsp;3</a>). In contrast, in the grass–shrub steppe there is a statistically significant regression, meaning we can extrapolate to the population of sites in the grass–shrub steppe (b = 12; P = 0.042).</p>
-<p>The slope—representing the effect of <strong>harvest-year growing season rainfall</strong> on ANPP—is positive. This means that for each mm of rain in the grass–shrub steppe, ANPP increases by 12 kg DM/ha/year (<a href="#tbl-regr1" class="quarto-xref">Tabla&nbsp;3</a>). This value is the point estimate of rainfall’s effect on ANPP, and the 95% confidence interval indicates the effect could be between 0.54 and 23 kg DM/ha/year. The model fit is moderate, with <span class="math inline">\(R^2\)</span> = 42.2%.</p>
+<p>When testing the model for ANPP with <strong>rainfall during the harvest-year growing season</strong>, we see no significant linear regression in the shrub steppe (b = 1.4, P = 0.6) (<a href="#tbl-regr1" class="quarto-xref">Table&nbsp;3</a>). In contrast, in the grass–shrub steppe there is a statistically significant regression, meaning we can extrapolate to the population of sites in the grass–shrub steppe (b = 12; P = 0.042).</p>
+<p>The slope—representing the effect of <strong>harvest-year growing season rainfall</strong> on ANPP—is positive. This means that for each mm of rain in the grass–shrub steppe, ANPP increases by 12 kg DM/ha/year (<a href="#tbl-regr1" class="quarto-xref">Table&nbsp;3</a>). This value is the point estimate of rainfall’s effect on ANPP, and the 95% confidence interval indicates the effect could be between 0.54 and 23 kg DM/ha/year. The model fit is moderate, with <span class="math inline">\(R^2\)</span> = 42.2%.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -1660,32 +1661,32 @@ Heads up…
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">sprintf</span>(<span class="st">"R² shrub = %.3f | R² grass-shrub = %.3f"</span>, </span>
 <span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">summary</span>(model_campo)<span class="sc">$</span>r.squared, </span>
 <span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">summary</span>(model_cerro)<span class="sc">$</span>r.squared)</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="tbl-regr1" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regr1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall in the harvest year, extrapolated from Gaitán and Biancari (2024). Beta represents the estimated effect (regression slope).
+Table&nbsp;3: Linear regression between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall in the harvest year, extrapolated from Gaitán and Biancari (2024). Beta represents the estimated effect (regression slope).
 </figcaption>
 <div aria-describedby="tbl-regr1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="gpytbclimr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gpytbclimr table {
+<div id="ikakvgzzfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ikakvgzzfa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gpytbclimr thead, #gpytbclimr tbody, #gpytbclimr tfoot, #gpytbclimr tr, #gpytbclimr td, #gpytbclimr th {
+#ikakvgzzfa thead, #ikakvgzzfa tbody, #ikakvgzzfa tfoot, #ikakvgzzfa tr, #ikakvgzzfa td, #ikakvgzzfa th {
   border-style: none;
 }
 
-#gpytbclimr p {
+#ikakvgzzfa p {
   margin: 0;
   padding: 0;
 }
 
-#gpytbclimr .gt_table {
+#ikakvgzzfa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1711,12 +1712,12 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-left-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_caption {
+#ikakvgzzfa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gpytbclimr .gt_title {
+#ikakvgzzfa .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1728,7 +1729,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-width: 0;
 }
 
-#gpytbclimr .gt_subtitle {
+#ikakvgzzfa .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1740,7 +1741,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-top-width: 0;
 }
 
-#gpytbclimr .gt_heading {
+#ikakvgzzfa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1752,13 +1753,13 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_bottom_border {
+#ikakvgzzfa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_col_headings {
+#ikakvgzzfa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1773,7 +1774,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_col_heading {
+#ikakvgzzfa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1793,7 +1794,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   overflow-x: hidden;
 }
 
-#gpytbclimr .gt_column_spanner_outer {
+#ikakvgzzfa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1805,15 +1806,15 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 4px;
 }
 
-#gpytbclimr .gt_column_spanner_outer:first-child {
+#ikakvgzzfa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gpytbclimr .gt_column_spanner_outer:last-child {
+#ikakvgzzfa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gpytbclimr .gt_column_spanner {
+#ikakvgzzfa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1825,11 +1826,11 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   width: 100%;
 }
 
-#gpytbclimr .gt_spanner_row {
+#ikakvgzzfa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gpytbclimr .gt_group_heading {
+#ikakvgzzfa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1855,7 +1856,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   text-align: left;
 }
 
-#gpytbclimr .gt_empty_group_heading {
+#ikakvgzzfa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1870,15 +1871,15 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   vertical-align: middle;
 }
 
-#gpytbclimr .gt_from_md > :first-child {
+#ikakvgzzfa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gpytbclimr .gt_from_md > :last-child {
+#ikakvgzzfa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gpytbclimr .gt_row {
+#ikakvgzzfa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1897,7 +1898,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   overflow-x: hidden;
 }
 
-#gpytbclimr .gt_stub {
+#ikakvgzzfa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1910,7 +1911,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#gpytbclimr .gt_stub_row_group {
+#ikakvgzzfa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1924,15 +1925,15 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   vertical-align: top;
 }
 
-#gpytbclimr .gt_row_group_first td {
+#ikakvgzzfa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gpytbclimr .gt_row_group_first th {
+#ikakvgzzfa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gpytbclimr .gt_summary_row {
+#ikakvgzzfa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1942,16 +1943,16 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#gpytbclimr .gt_first_summary_row {
+#ikakvgzzfa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_first_summary_row.thick {
+#ikakvgzzfa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gpytbclimr .gt_last_summary_row {
+#ikakvgzzfa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1961,7 +1962,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_grand_summary_row {
+#ikakvgzzfa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1971,7 +1972,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#gpytbclimr .gt_first_grand_summary_row {
+#ikakvgzzfa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1981,7 +1982,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-top-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_last_grand_summary_row_top {
+#ikakvgzzfa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1991,11 +1992,11 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_striped {
+#ikakvgzzfa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gpytbclimr .gt_table_body {
+#ikakvgzzfa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2004,7 +2005,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_footnotes {
+#ikakvgzzfa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2018,7 +2019,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_footnote {
+#ikakvgzzfa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2027,7 +2028,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#gpytbclimr .gt_sourcenotes {
+#ikakvgzzfa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2041,7 +2042,7 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#gpytbclimr .gt_sourcenote {
+#ikakvgzzfa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2049,72 +2050,72 @@ Tabla&nbsp;3: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#gpytbclimr .gt_left {
+#ikakvgzzfa .gt_left {
   text-align: left;
 }
 
-#gpytbclimr .gt_center {
+#ikakvgzzfa .gt_center {
   text-align: center;
 }
 
-#gpytbclimr .gt_right {
+#ikakvgzzfa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gpytbclimr .gt_font_normal {
+#ikakvgzzfa .gt_font_normal {
   font-weight: normal;
 }
 
-#gpytbclimr .gt_font_bold {
+#ikakvgzzfa .gt_font_bold {
   font-weight: bold;
 }
 
-#gpytbclimr .gt_font_italic {
+#ikakvgzzfa .gt_font_italic {
   font-style: italic;
 }
 
-#gpytbclimr .gt_super {
+#ikakvgzzfa .gt_super {
   font-size: 65%;
 }
 
-#gpytbclimr .gt_footnote_marks {
+#ikakvgzzfa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gpytbclimr .gt_asterisk {
+#ikakvgzzfa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gpytbclimr .gt_indent_1 {
+#ikakvgzzfa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gpytbclimr .gt_indent_2 {
+#ikakvgzzfa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gpytbclimr .gt_indent_3 {
+#ikakvgzzfa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gpytbclimr .gt_indent_4 {
+#ikakvgzzfa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gpytbclimr .gt_indent_5 {
+#ikakvgzzfa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gpytbclimr .katex-display {
+#ikakvgzzfa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gpytbclimr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ikakvgzzfa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2178,8 +2179,8 @@ Grass-shrub steppe
 </figure>
 </div>
 </div>
-<p>When I fit the ANPP model with <strong>rainfall from the previous growing season</strong>, the results flip. For the shrub steppe, there is a significant regression (b = 5.0; P = 0.017) (<a href="#tbl-regr2" class="quarto-xref">Tabla&nbsp;4</a>), whereas for the grass–shrub steppe we cannot claim a significant regression (b = -2.3; P = 0.7).</p>
-<p>In the shrub steppe, the effect of <strong>previous growing season rainfall</strong> on ANPP is positive. The slope interpretation is that for each mm of rain in the shrub steppe, ANPP increases by 5 kg DM/ha/year (<a href="#tbl-regr2" class="quarto-xref">Tabla&nbsp;4</a>). This is the point estimate of rainfall’s effect on ANPP in the shrub steppe, and the 95% confidence interval indicates the effect may be between 1.1 and 8.8 kg DM/ha/year. Similarly, the model fit is moderate, with <span class="math inline">\(R^2\)</span> = 52.9%.</p>
+<p>When I fit the ANPP model with <strong>rainfall from the previous growing season</strong>, the results flip. For the shrub steppe, there is a significant regression (b = 5.0; P = 0.017) (<a href="#tbl-regr2" class="quarto-xref">Table&nbsp;4</a>), whereas for the grass–shrub steppe we cannot claim a significant regression (b = -2.3; P = 0.7).</p>
+<p>In the shrub steppe, the effect of <strong>previous growing season rainfall</strong> on ANPP is positive. The slope interpretation is that for each mm of rain in the shrub steppe, ANPP increases by 5 kg DM/ha/year (<a href="#tbl-regr2" class="quarto-xref">Table&nbsp;4</a>). This is the point estimate of rainfall’s effect on ANPP in the shrub steppe, and the 95% confidence interval indicates the effect may be between 1.1 and 8.8 kg DM/ha/year. Similarly, the model fit is moderate, with <span class="math inline">\(R^2\)</span> = 52.9%.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show code</summary>
@@ -2217,32 +2218,32 @@ Grass-shrub steppe
 <span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">sprintf</span>(<span class="st">"R² shrub = %.3f | R² grass-shrub = %.3f"</span>, </span>
 <span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">summary</span>(model_campo)<span class="sc">$</span>r.squared, </span>
 <span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">summary</span>(model_cerro)<span class="sc">$</span>r.squared)</span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div id="tbl-regr2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-regr2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (ANPP) in both steppes and previous-year growing season rainfall extrapolated from Gaitán and Biancari (2024).
+Table&nbsp;4: Linear regression between Net Aboveground Primary Productivity (ANPP) in both steppes and previous-year growing season rainfall extrapolated from Gaitán and Biancari (2024).
 </figcaption>
 <div aria-describedby="tbl-regr2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="nvxhkebhrw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nvxhkebhrw table {
+<div id="jydsegkjwn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jydsegkjwn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nvxhkebhrw thead, #nvxhkebhrw tbody, #nvxhkebhrw tfoot, #nvxhkebhrw tr, #nvxhkebhrw td, #nvxhkebhrw th {
+#jydsegkjwn thead, #jydsegkjwn tbody, #jydsegkjwn tfoot, #jydsegkjwn tr, #jydsegkjwn td, #jydsegkjwn th {
   border-style: none;
 }
 
-#nvxhkebhrw p {
+#jydsegkjwn p {
   margin: 0;
   padding: 0;
 }
 
-#nvxhkebhrw .gt_table {
+#jydsegkjwn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2268,12 +2269,12 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-left-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_caption {
+#jydsegkjwn .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nvxhkebhrw .gt_title {
+#jydsegkjwn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2285,7 +2286,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-width: 0;
 }
 
-#nvxhkebhrw .gt_subtitle {
+#jydsegkjwn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2297,7 +2298,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-top-width: 0;
 }
 
-#nvxhkebhrw .gt_heading {
+#jydsegkjwn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2309,13 +2310,13 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_bottom_border {
+#jydsegkjwn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_col_headings {
+#jydsegkjwn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2330,7 +2331,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_col_heading {
+#jydsegkjwn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2350,7 +2351,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   overflow-x: hidden;
 }
 
-#nvxhkebhrw .gt_column_spanner_outer {
+#jydsegkjwn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2362,15 +2363,15 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 4px;
 }
 
-#nvxhkebhrw .gt_column_spanner_outer:first-child {
+#jydsegkjwn .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nvxhkebhrw .gt_column_spanner_outer:last-child {
+#jydsegkjwn .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nvxhkebhrw .gt_column_spanner {
+#jydsegkjwn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2382,11 +2383,11 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   width: 100%;
 }
 
-#nvxhkebhrw .gt_spanner_row {
+#jydsegkjwn .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nvxhkebhrw .gt_group_heading {
+#jydsegkjwn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2412,7 +2413,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   text-align: left;
 }
 
-#nvxhkebhrw .gt_empty_group_heading {
+#jydsegkjwn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2427,15 +2428,15 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   vertical-align: middle;
 }
 
-#nvxhkebhrw .gt_from_md > :first-child {
+#jydsegkjwn .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nvxhkebhrw .gt_from_md > :last-child {
+#jydsegkjwn .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nvxhkebhrw .gt_row {
+#jydsegkjwn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2454,7 +2455,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   overflow-x: hidden;
 }
 
-#nvxhkebhrw .gt_stub {
+#jydsegkjwn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2467,7 +2468,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#nvxhkebhrw .gt_stub_row_group {
+#jydsegkjwn .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2481,15 +2482,15 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   vertical-align: top;
 }
 
-#nvxhkebhrw .gt_row_group_first td {
+#jydsegkjwn .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nvxhkebhrw .gt_row_group_first th {
+#jydsegkjwn .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nvxhkebhrw .gt_summary_row {
+#jydsegkjwn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2499,16 +2500,16 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#nvxhkebhrw .gt_first_summary_row {
+#jydsegkjwn .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_first_summary_row.thick {
+#jydsegkjwn .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nvxhkebhrw .gt_last_summary_row {
+#jydsegkjwn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2518,7 +2519,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_grand_summary_row {
+#jydsegkjwn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2528,7 +2529,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#nvxhkebhrw .gt_first_grand_summary_row {
+#jydsegkjwn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2538,7 +2539,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-top-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_last_grand_summary_row_top {
+#jydsegkjwn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2548,11 +2549,11 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_striped {
+#jydsegkjwn .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nvxhkebhrw .gt_table_body {
+#jydsegkjwn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2561,7 +2562,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-bottom-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_footnotes {
+#jydsegkjwn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2575,7 +2576,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_footnote {
+#jydsegkjwn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2584,7 +2585,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#nvxhkebhrw .gt_sourcenotes {
+#jydsegkjwn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2598,7 +2599,7 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   border-right-color: #D3D3D3;
 }
 
-#nvxhkebhrw .gt_sourcenote {
+#jydsegkjwn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2606,72 +2607,72 @@ Tabla&nbsp;4: Linear regression between Net Aboveground Primary Productivity (AN
   padding-right: 5px;
 }
 
-#nvxhkebhrw .gt_left {
+#jydsegkjwn .gt_left {
   text-align: left;
 }
 
-#nvxhkebhrw .gt_center {
+#jydsegkjwn .gt_center {
   text-align: center;
 }
 
-#nvxhkebhrw .gt_right {
+#jydsegkjwn .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nvxhkebhrw .gt_font_normal {
+#jydsegkjwn .gt_font_normal {
   font-weight: normal;
 }
 
-#nvxhkebhrw .gt_font_bold {
+#jydsegkjwn .gt_font_bold {
   font-weight: bold;
 }
 
-#nvxhkebhrw .gt_font_italic {
+#jydsegkjwn .gt_font_italic {
   font-style: italic;
 }
 
-#nvxhkebhrw .gt_super {
+#jydsegkjwn .gt_super {
   font-size: 65%;
 }
 
-#nvxhkebhrw .gt_footnote_marks {
+#jydsegkjwn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nvxhkebhrw .gt_asterisk {
+#jydsegkjwn .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nvxhkebhrw .gt_indent_1 {
+#jydsegkjwn .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nvxhkebhrw .gt_indent_2 {
+#jydsegkjwn .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nvxhkebhrw .gt_indent_3 {
+#jydsegkjwn .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nvxhkebhrw .gt_indent_4 {
+#jydsegkjwn .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nvxhkebhrw .gt_indent_5 {
+#jydsegkjwn .gt_indent_5 {
   text-indent: 25px;
 }
 
-#nvxhkebhrw .katex-display {
+#jydsegkjwn .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#nvxhkebhrw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jydsegkjwn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2846,7 +2847,7 @@ Summing up the shrub steppe:
 <span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>, <span class="at">axis_titles =</span> <span class="st">"collect"</span>)</span>
 <span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Fig_regresiones_juntas.png"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">5.5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Fig_regresiones_juntas.png"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">5.5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-regr_juntas" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -2855,7 +2856,7 @@ Summing up the shrub steppe:
 <img src="index_en_files/figure-html/fig-regr_juntas-1.jpeg" class="img-fluid figure-img" style="width:6in">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-regr_juntas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;7: Relationship between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall extrapolated from Gaitán and Biancari (2024) for the harvest year and the previous year.
+Figure&nbsp;7: Relationship between Net Aboveground Primary Productivity (ANPP) in both steppes and growing season rainfall extrapolated from Gaitán and Biancari (2024) for the harvest year and the previous year.
 </figcaption>
 </figure>
 </div>
@@ -2898,12 +2899,12 @@ Figura&nbsp;7: Relationship between Net Aboveground Primary Productivity (ANPP) 
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copiado");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copiado");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
