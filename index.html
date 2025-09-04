@@ -1,47 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PPAN & Rainfall in the Dry Puna</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NAPP & Rainfall in the Dry Puna</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
-      background: #f9f9f9;
+    :root{
+      --primary:#2d6cdf;
+      --primary-dark:#1b4ea0;
+      --bg:#0b1020;
+      --text:#0f172a;
     }
-    h1 {
-      margin-bottom: 40px;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--text);
+      background:#f7f7fb;
+      line-height:1.5;
     }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+    .hero{
+      position:relative;
+      min-height:68vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      background:#000;
+      overflow:hidden;
     }
-    a {
-      text-decoration: none;
-      font-size: 20px;
-      padding: 15px 30px;
-      border-radius: 10px;
-      color: white;
-      background-color: #2d6cdf;
-      transition: background 0.3s;
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:url("assets/cover.png") center/cover no-repeat;
+      filter:brightness(0.75);
+      transform:scale(1.02);
     }
-    a:hover {
-      background-color: #1b4ea0;
+    .overlay{
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
     }
-    .flag {
-      font-size: 26px;
-      margin-right: 10px;
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      width:100%;
+      max-width:980px;
+      padding:48px 20px;
+    }
+    .logo{
+      display:inline-block;
+      margin-bottom:18px;
+      background:#ffffffd0;
+      padding:8px 12px;
+      border-radius:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,.18);
+    }
+    .logo img{
+      height:52px; width:auto; display:block;
+    }
+    h1{font-size:clamp(28px,4vw,40px); margin:18px 0 10px}
+    p.lead{
+      margin:0 auto 26px;
+      max-width:820px;
+      font-size:clamp(16px,2.3vw,18px);
+      color:#e6eaf2;
+    }
+    .buttons{
+      display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none; font-weight:600;
+      padding:12px 18px; border-radius:12px;
+      background:var(--primary); color:#fff;
+      box-shadow:0 8px 22px rgba(45,108,223,.28);
+      transition:.2s ease;
+    }
+    .btn:hover{ background:var(--primary-dark); transform:translateY(-1px)}
+    .btn.secondary{
+      background:#ffffffd0; color:#0b1220; box-shadow:0 8px 22px rgba(0,0,0,.12);
+    }
+    .flag{ font-size:22px }
+    .content{
+      max-width:980px; margin:40px auto; padding:0 20px; color:#334155;
+    }
+    .card{
+      background:#fff; border:1px solid #e5e7eb; border-radius:18px;
+      padding:22px; box-shadow:0 10px 26px rgba(0,0,0,.06);
+    }
+    .links{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px }
+    footer{
+      text-align:center; color:#64748b; font-size:14px; padding:28px 20px 40px;
     }
   </style>
 </head>
 <body>
-  <h1>Net Primary Productivity (NAPP) and Rainfall in the Dry Puna</h1>
-  <p>Please choose your language:</p>
-  <div class="buttons">
-    <a href="index_es.html"><span class="flag">🇪🇸</span> Spanish</a>
-    <a href="index_en.html"><span class="flag">🇬🇧</span> English</a>
-  </div>
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-inner">
+      <!-- Logo opcional -->
+      <a class="logo" href="#">
+        <img src="assets/logo.png" alt="Project logo" onerror="this.style.display='none'">
+      </a>
+
+      <h1>Net Primary Productivity (NAPP) & Rainfall in the Dry Puna</h1>
+      <p class="lead">
+        Field-based analysis of aboveground productivity and rainfall in two contrasting shrub steppes
+        near Cobres (Salta, Argentina). View the report in your language:
+      </p>
+      <div class="buttons">
+        <a class="btn secondary" href="index_es.html"><span class="flag">🇪🇸</span> Spanish</a>
+        <a class="btn" href="index_en.html"><span class="flag">🇬🇧</span> English</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="card">
+      <h2 style="margin-top:0">About</h2>
+      <p style="margin:8px 0 14px">
+        This landing page routes to the Quarto HTML reports. The repositories include the
+        full workflow, figures and resources for reproducible reporting.
+      </p>
+      <div class="links">
+        <a class="btn secondary" href="README.md">Open README</a>
+        <a class="btn secondary" href="index_en_files/">English assets</a>
+        <a class="btn secondary" href="index_files/">Spanish assets</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="y"></span> — Dry Puna Productivity · Cobres, Salta
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
+
