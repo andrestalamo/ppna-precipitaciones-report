@@ -1,19 +1,29 @@
-# Quarto Report: Net Primary Productivity and Rainfall in Drylands
+# Net Primary Productivity and Rainfall in the Dry Puna (Cobres, Salta)
 
-[![View Report](https://img.shields.io/badge/View_Report-HTML-green)](https://andrestalamo.github.io/ppna-precipitaciones-report/)
+This repository hosts **Quarto HTML reports** analyzing the relationship between  
+**Net Aboveground Primary Productivity (NAPP)** and rainfall in two shrub steppes  
+of the Dry Puna in northwestern Argentina.
 
-This repository hosts an example of a Quarto HTML report inspired by [Yan Holtz](https://www.yan-holtz.com/) courses, pages, and tutorials.  
-The report shows a **workflow of statistical analyses and visualizations** applied to ecological grazing data from the Puna Seca region (Argentina).  
+## 📊 Available Reports
 
-It includes:
-- Data preparation and analysis in R  
-- Statistical models and inference  
-- Graphs and tables created with Quarto + ggplot2  
-- Example of reproducible reporting for ecological research  
+- 🇪🇸 [Report in Spanish](index.html)  
+- 🇬🇧 [Report in English](index_en.html)
 
-The analyses presented here were part of a study led by **Dr. Mariana Quiroga (INTA, Argentina)** and later used in a manuscript submitted to *Ecología Austral*.  
+---
 
+## 📖 Context
 
-👉 [**Open full report**](https://andrestalamo.github.io/ppna-precipitaciones-report/)
+Livestock production in arid and semi-arid grasslands depends entirely on natural vegetation.  
+In the Dry Puna, rainfall is highly variable and strongly determines forage availability.  
+These reports explore how vegetation productivity responds to rainfall in two contrasting steppe types:  
+a **grass–shrub steppe on slopes** (*Cerro*) and a **shrub-dominated steppe on plains** (*Campo*).  
 
+The analysis connects with classic frameworks such as the *pulse–reserve* and *two-layer* hypotheses (e.g., Ogle & Reynolds, 2004) and provides empirical insights from field data collected in Cobres (Salta, Argentina).
 
+---
+
+## 🚀 How to Reproduce
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/YOUR_USER/YOUR_REPO.git
